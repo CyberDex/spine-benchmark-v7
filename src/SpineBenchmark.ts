@@ -49,24 +49,25 @@ export class SpineBenchmark {
       } else {
         reader.readAsText(file);
       }
-      reader.onload = (event) => {
+      reader.onload = async (event) => {
         if (file.type.match(/image/)) {
-          Assets.load(event.target!.result as string).then(() => {
-            count += 1;
-            Assets.cache.set(
-              file.name,
-              Assets.cache.get(event.target!.result as string)
-            );
-            if (count === filesLength) {
-              this.createSpineAsset(json, atlasText!);
-            }
-          });
+          await Assets.load(event.target!.result as string);
+
+          count += 1;
+          Assets.cache.set(
+            file.name,
+            Assets.cache.get(event.target!.result as string)
+          );
+          if (count === filesLength) {
+            await this.createSpineAsset(json, atlasText!);
+          }
+            
         } else if (file.type === "application/json") {
           count += 1;
           json = JSON.parse(event.target!.result as string);
           // AnimationStore.instance.setSpineAnimations(Object.keys(json.animations));
           if (count === filesLength) {
-            this.createSpineAsset(json, atlasText!);
+            await this.createSpineAsset(json, atlasText!);
           }
         } else if (/^.+\.skel$/.test(filename)) {
           count += 1;
@@ -74,55 +75,56 @@ export class SpineBenchmark {
           json = event.target!.result;
           // AnimationStore.instance.setSpineAnimations(Object.keys(json.animations));
           if (count === filesLength) {
-            this.createSpineAsset(json, atlasText!);
+            await this.createSpineAsset(json, atlasText!);
           }
         } else {
           count += 1;
           atlasText = event.target!.result as string;
           if (count === filesLength) {
-            this.createSpineAsset(json, atlasText);
+            await this.createSpineAsset(json, atlasText);
           }
         }
       };
     });
   }
 
-  private createSpineAsset(data: any, atlasText: string): void {
-    const key = `spine-${createId()}`;
-    const spineAtlas = new TextureAtlas(atlasText, function (line, callback) {
-      callback(Assets.cache.get(line));
-    });
+  private createSpineAsset(data: any, atlasText: string): Promise<void> {
+    return new Promise((resolve) => {
+      const key = `spine-${createId()}`;
+      const spineAtlas = new TextureAtlas(atlasText, function (line, callback) {
+        callback(Assets.cache.get(line));
+      });
 
-    let skeletonData: SkeletonData;
-    if (this.isBinary) {
-      const spineBinaryParser = new SkeletonBinary(
-        new AtlasAttachmentLoader(spineAtlas)
-      );
-      skeletonData = spineBinaryParser.readSkeletonData(new Uint8Array(data));
-    } else {
-      const spineJsonParser = new SkeletonJson(
-        new AtlasAttachmentLoader(spineAtlas)
-      );
-      skeletonData = spineJsonParser.readSkeletonData(data);
-    }
-
-    Assets.cache.set(key, skeletonData);
-
-    setTimeout(() => {
-      const skeleton = new Spine(Assets.cache.get(key));
-      const camera = this.app.stage.children[0] as CameraContainer;
-
-      // Remove previous Spine instance if exists
-      if (this.spineInstance) {
-        camera.removeChild(this.spineInstance);
+      let skeletonData: SkeletonData;
+      if (this.isBinary) {
+        const spineBinaryParser = new SkeletonBinary(
+          new AtlasAttachmentLoader(spineAtlas)
+        );
+        skeletonData = spineBinaryParser.readSkeletonData(new Uint8Array(data));
+      } else {
+        const spineJsonParser = new SkeletonJson(
+          new AtlasAttachmentLoader(spineAtlas)
+        );
+        skeletonData = spineJsonParser.readSkeletonData(data);
       }
 
-      camera.addChild(skeleton);
-      camera.lookAtChild(skeleton);
+      Assets.cache.set(key, skeletonData);
 
-      // UI elements:
-      this.createAnimationButtons(skeleton);
-      this.createSkinButtons(skeleton);
+      setTimeout(() => {
+        const skeleton = new Spine(Assets.cache.get(key));
+        const camera = this.app.stage.children[0] as CameraContainer;
+
+        // Remove previous Spine instance if exists
+        if (this.spineInstance) {
+          camera.removeChild(this.spineInstance);
+        }
+
+        camera.addChild(skeleton);
+        camera.lookAtChild(skeleton);
+
+        // UI elements:
+        this.createAnimationButtons(skeleton);
+        this.createSkinButtons(skeleton);
 
       this.spineInstance = skeleton;
       this.updateBenchmarkResults();
