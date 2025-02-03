@@ -1,5 +1,5 @@
-- Кости должны именоваться латиницей
-- Все слова пишутся маленькими буквами и соединяются символом нижнего подчеркивания (_)
-- Примеры snake_case: **moustache_holder**, **frame_fx_holder**, **frame_fx_2**
-- Не используются дефисы или другие специальные символы
-- Для разграничения левых/правых костей разрешено использование суффиксов **_L** и **_R**: **pupil_L**, **pupil_R**
+- Bones must be named in Latin
+- All words are written in lowercase and connected by an underscore (\_)
+- Snake_case examples: **moustache_holder**, **frame_fx_holder**, **frame_fx_2**
+- No hyphens or other special characters
+- The **\_L** and **\_R** suffixes are allowed to distinguish left/right bones: **pupil_L**, **pupil_R**

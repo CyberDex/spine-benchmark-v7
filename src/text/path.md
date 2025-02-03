@@ -1,2 +1,2 @@
-- Path Constraint потребляют много CPU если вдоль них следует большое количество костей, однако это редко будет ботлнеком
-- Path и IK Constraint являются важными инструментами, управление над котороми можно вести из кода
+- Path Constraints are CPU intensive if there are a lot of bones running along them, but this will rarely be a bottleneck
+- Path and IK Constraints are important tools that can be controlled from code

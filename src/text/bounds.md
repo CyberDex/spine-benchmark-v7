@@ -1,1 +1,1 @@
-- Границы передвигающихся по экрану объектов важно вручную "ограничить" чтобы pixi понял когда можно прекратить рендер
+- It is important to manually "limit" the boundaries of objects moving on the screen so that pixi understands when it can stop rendering

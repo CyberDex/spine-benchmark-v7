@@ -1,1 +1,1 @@
-- PIXI.AbstractBatchRenderer накапливает пул BatchDrawCall и flush-ит их, наличие большого количества режимов наложения и мешей на одном спайне может вынудить делать отдельный дроу-колл чтоб отрисовать все нужное для кадра
+- PIXI.AbstractBatchRenderer accumulates a pool of BatchDrawCalls and flushes them, the presence of a large number of blending modes and meshes on one spine may force you to make a separate draw call to draw everything needed for the frame

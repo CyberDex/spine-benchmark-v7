@@ -1,2 +1,2 @@
-В инструменте представлена документация с требованиями и дроп зона анализа файлов.
-Под капотом pixi v7.4 и spine рантайм v4.1, в них внедрены изменения для подсчета нагрузки на рендер.
+The tool provides documentation with requirements and a drop zone for file analysis.
+Under the hood, pixi v7.4 and spine runtime v4.1, which have implemented changes to calculate the load on the renderer.

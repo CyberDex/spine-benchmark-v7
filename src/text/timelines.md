@@ -1,3 +1,3 @@
-- Таймлайны и число ключей в них оказывают RAM нагрузку и раздувают размер файла, однако на CPU влияют минимально
-- Снижение числа таймлайнов рекомендованно только для организации анимаций
-- Мусор из таймлайнов можно убрать функцией Clean Up спайна
+- Timelines and the number of keys in them put a RAM load and inflate the file size, but have a minimal effect on the CPU
+- Reducing the number of timelines is recommended only for organizing animations
+- Garbage from timelines can be removed using the Clean Up spine function

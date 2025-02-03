@@ -1,2 +1,2 @@
-- Снижение размера или альфы аттачмента в ноль - плохой способ скрывать аттачмент
-- *Аттачмент надо скрывать таймлайном*
+- Reducing the size or alpha of an attachment to zero is a bad way to hide an attachment
+- _The attachment should be hidden by the timeline_
