@@ -4,7 +4,7 @@
     "description": "Spine Benchmark for PixiJS v7",
     "main": "dist/index.js",
     "scripts": {
-        "build": "vite build",
+        "build": "tsc --noResolve && vite build",
         "start": "tsc && http-server",
         "dev": "vite --host 0.0.0.0 --open"
     },
