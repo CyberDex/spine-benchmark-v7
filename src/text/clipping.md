@@ -1,4 +1,4 @@
-- Клиппинг - это самая дорогая операция всех спайн рантаймов, особенно если есть меш, и тем более с большим числом вертексов
-- Если без клиппинга не обойтись, делайте клиппинг аттачмент с тремя вершинами
-- Если вершин надо больше, старайтесь делать маску выпуклым многоугольником
-- Дешевле добавить маску в движке, она будет вызывать один стенсил шейдер
+- Clipping is the most expensive operation of all spine runtimes, especially if there is a mesh, and even more so with a large number of vertices
+- If you can't do without clipping, make a clipping attachment with three vertices
+- If you need more vertices, try to make the mask a convex polygon
+- It is cheaper to add a mask in the engine, it will call one stencil shader

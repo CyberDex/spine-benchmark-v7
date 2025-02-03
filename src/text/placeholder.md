@@ -1,3 +1,3 @@
-- Для замены слотов на разные игровые сущности в рантайме используются placeholder слоты
-- В слот необходимо положить маленькую картинку, например 2x2 белый квадрат с 1% прозрачности (в картинке)
-- В гайде необходимо описать разработчику какая сущность будет подставляться в этот слот
+- Placeholder slots are used to replace slots with different game entities in runtime
+- A small picture must be placed in the slot, for example a 2x2 white square with 1% transparency (in the picture)
+- The guide must describe to the developer which entity will be substituted in this slot

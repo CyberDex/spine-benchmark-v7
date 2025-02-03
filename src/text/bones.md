@@ -1,4 +1,4 @@
-- Меньше костей - лучше
-- Меньше глубина дерева - лучше
-- Наследование положение от родителя дешево
-- Иметь вторую рут кость для "рут моушена" скелета нормально, однако иерархия отрицательно влияет на производительность
+- Less bones is better
+- Less tree depth is better
+- Inheriting position from parent is cheap
+- Having a second root bone for "root motion" of the skeleton is ok, but hierarchy negatively affects performance

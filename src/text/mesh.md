@@ -1,5 +1,5 @@
-- Mesh Link снижает потребление памяти, при вычислении положения меша переиспользуются вычисленные ранее в скелете значения однако на нагрузку CPU это сильно не влияет
-- Деформационные ключи нагружают CPU базовыми операциями умножения для каждого вертекса, то есть чем больше костей влияют на меш и чем больше в нем вертекс, тем больше нагрузка. Один вес и 10 вертексов это примерно то же самое, что три веса и три вертекса. По этой причине лица и другие меши с большим числом вертексов лучше вешать на меньшее количество костей.
-- Деформационные ключи едят много RAM, использование большого количество ключей деформации может увеличить размер скелета
-- Для снижения нагрузки на RAM лучше использовать деформационные ключи реже или отказываться от них
-- Лишние ключи деформации меша полезно чистить функциями Prune и Smooth
+- Mesh Link reduces memory consumption, when calculating the mesh position, the values ​​previously calculated in the skeleton are reused, but this does not greatly affect the CPU load
+- Deformation keys load the CPU with basic multiplication operations for each vertex, that is, the more bones affect the mesh and the more vertex it has, the greater the load. One weight and 10 vertices is about the same as three weights and three vertices. For this reason, faces and other meshes with a large number of vertices are better hung on fewer bones.
+- Deformation keys eat up a lot of RAM, using a large number of deformation keys can increase the size of the skeleton
+- To reduce the load on RAM, it is better to use deformation keys less often or refuse them
+- It is useful to clean unnecessary mesh deformation keys with the Prune and Smooth functions

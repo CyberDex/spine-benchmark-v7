@@ -1,3 +1,3 @@
-- Spine предназначен для скелетной анимации, а не для частиц - их нужно делать средствами движка или секвенциями
-- Анимация частиц в Spine - это больная нагрузка на CPU и RAM
-- Pixi имеет пакет particle-emitter для частиц и редактор частиц (ссылка внизу страницы)
+- Spine is for skeletal animation, not particles - those need to be done in-engine or with sequences
+- Particle animation in Spine is a huge CPU and RAM hog
+- Pixi has a particle-emitter package for particles and a particle editor (link at the bottom of the page)

@@ -1,5 +1,5 @@
-- Blend Mode вызывают дополнительные flush-ы шейдеров при рендере и создают высокую нагрузку
-- Использование Add и Mul режимов лучше минимизировать или сводить на ноль для снижения температурной нагрузки
-- Нужно использовать не более двух аттачментов с аддитивным режимом на анимацию
-- Режимы наложения можно использовать только в анонсерах и специальных символах (скаттер, вайлд)
-- Текстурный атлас снижает число переключений текстур в рендере, однако бленды делают ровно противоположное
+- Blend Mode causes additional shader flushes during rendering and creates a high load
+- It is better to minimize or reduce the use of Add and Mul modes to zero to reduce the temperature load
+- It is necessary to use no more than two attachments with additive mode per animation
+- Blend modes can only be used in announcers and special symbols (scatter, wild)
+- Texture atlas reduces the number of texture switches in the render, but blends do exactly the opposite
