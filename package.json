@@ -6,7 +6,7 @@
     "scripts": {
         "build": "vite build",
         "start": "tsc && http-server",
-        "dev": "vite --host 0.0.0.0"
+        "dev": "vite --host 0.0.0.0 --open"
     },
     "dependencies": {
         "@paralleldrive/cuid2": "^2.2.2",
