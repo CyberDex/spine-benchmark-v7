@@ -4,8 +4,8 @@
     "description": "Spine Benchmark for PixiJS v7",
     "main": "dist/index.js",
     "scripts": {
-        "build": "tsc --noResolve && vite build",
-        "start": "tsc && http-server",
+        "build": "tsc-silent -p tsconfig.json --suppress @src && vite build",
+        "start": "tsc-silent -p tsconfig.json --suppress @src && vite build",
         "dev": "vite --host 0.0.0.0 --open"
     },
     "dependencies": {
@@ -16,6 +16,7 @@
         "pixi-spine": "^4.0.3",
         "pixi-stats": "^1.2.2",
         "pixi.js": "^7.2.4",
+        "tsc-silent": "^1.2.2",
         "vite": "^5.4.5",
         "vite-plugin-markdown": "^2.2.0",
         "vite-plugin-md-to-html": "^0.0.18"
